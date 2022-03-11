@@ -1,4 +1,4 @@
-FROM huanwei/rocketmq:4.3.2
+FROM yeehawmars/rocketmq:4.9.3
 
 COPY brokerGenConfig.sh brokerStart.sh ${ROCKETMQ_HOME}/bin/
 RUN chmod +x ${ROCKETMQ_HOME}/bin/brokerGenConfig.sh \

@@ -20,7 +20,7 @@ build-in-docker:
 # Example:
 #   make build-image
 build-image:
-	pushd docker/rocketmq-operator && sh ./build-image.sh && popd
+	pushd cd docker/rocketmq-operator && sh ./build-image.sh && popd
 .PHONY: build-image
 
 # Build the docker image
@@ -28,6 +28,6 @@ build-image:
 # Example:
 #   make build-image
 push:
-	pushd docker/rocketmq-operator && sh ./build-image.sh && popd
+	pushd cd docker/rocketmq-operator && sh ./build-image.sh && popd
 .PHONY: push
 

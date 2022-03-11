@@ -13,14 +13,16 @@ spec:
       app: rocketmq-namesrv
   template:
     metadata:
-     labels:
-       app: rocketmq-namesrv
+      annotations:
+        tke.cloud.tencent.com/networks: tke-route-eni
+      labels:
+        app: rocketmq-namesrv
     spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: namesrv
-        image: huanwei/rocketmq:4.3.2
+        image: yeehawmars/rocketmq:4.9.3
         command: ["sh","mqnamesrv"]
         imagePullPolicy: Always
         ports:
@@ -32,5 +34,5 @@ spec:
       - name: namesrvlogs
         hostPath:
           path: /data/namesrv/logs
-      #nodeSelector:
-           #rocketmq-operator: "on"
+      nodeSelector:
+        rocketmq-operator: "on"

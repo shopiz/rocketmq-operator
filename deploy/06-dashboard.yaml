@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rocketmq-dashboard
+  namespace: rocketmq-operator
+  labels:
+    app: rocketmq-dashboard
+spec:
+  template:
+    metadata:
+      name: rocketmq-dashboard
+      annotations:
+        tke.cloud.tencent.com/networks: tke-route-eni
+      labels:
+        app: rocketmq-dashboard
+    spec:
+      containers:
+      - name: rocketmq-dashboard
+        image: styletang/rocketmq-console-ng
+        imagePullPolicy: IfNotPresent
+        args: ["JAVA_OPTS=-Drocketmq.config.namesrvAddr=rocketmq-namesrv:9876","-Drocketmq.config.isVIPChannel=false"]
+        ports:
+        - name: http
+          containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rocketmq-dashboard
+  namespace: rocketmq-operator
+  labels:
+    app: rocketmq-dashboard
+spec:
+  type: ClusterIP
+  ports:
+    - name: tcp
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: rocketmq-dashboard
