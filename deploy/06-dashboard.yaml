@@ -17,9 +17,13 @@ spec:
     spec:
       containers:
       - name: rocketmq-dashboard
-        image: styletang/rocketmq-console-ng
+        # image: styletang/rocketmq-console-ng
+        image: apacherocketmq/rocketmq-dashboard:1.0.0
         imagePullPolicy: IfNotPresent
-        args: ["JAVA_OPTS=-Drocketmq.config.namesrvAddr=rocketmq-namesrv:9876","-Drocketmq.config.isVIPChannel=false"]
+        env:
+        - name: JAVA_OPTS
+          value: -Drocketmq.config.namesrvAddr=10.55.1.7:9876;10.55.1.15:9876 -Drocketmq.config.isVIPChannel=false  -Drocketmq.config.aclEnabled=true -Drocketmq.config.accessKey=ZGFzaGJvYXJkQHllZWhhdy5jb20uY24K -Drocketmq.config.secretKey=wLzUe3lPtm1ynmK4usS2IJUU7Sz9FwXd
+        # args: ["JAVA_OPTS=-Drocketmq.config.namesrvAddr=rocketmq-namesrv:9876","-Drocketmq.config.isVIPChannel=false"]
         ports:
         - name: http
           containerPort: 8080

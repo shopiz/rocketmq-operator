@@ -5,11 +5,12 @@ metadata:
   name: mybrokercluster
   namespace : rocketmq-operator
 spec:
-  brokerImage: yeehawmars/rocketmq-broker-k8s:4.3.2
-  nameServers: 10.55.1.13:9876;10.55.1.15:9876
+  brokerImage: yeehawmars/rocketmq-broker-k8s:4.9.3
+  # brokerImage: huanwei/rocketmq-broker-k8s:4.3.2
+  nameServers: "10.55.1.7:9876;10.55.1.15:9876"
   allMaster: false
   replicationMode: SYNC
   groupReplica: 2
   membersPerGroup: 2
-  emptyDir: true
-  #storageClassName: demo-nfs-storage
+  emptyDir: false
+  storageClassName: tke-cfs

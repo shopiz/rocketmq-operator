@@ -23,6 +23,7 @@ spec:
       containers:
       - name: namesrv
         image: yeehawmars/rocketmq:4.9.3
+        # image: huanwei/rocketmq:4.3.2
         command: ["sh","mqnamesrv"]
         imagePullPolicy: Always
         ports:

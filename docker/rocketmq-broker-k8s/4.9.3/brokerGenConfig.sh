@@ -7,6 +7,8 @@ BROKER_ID=$(cat /etc/hostname | grep -o '[^-]*$')
 
 BROKER_ROLE="SLAVE"
 
+ACL_ENABLE=${ACL_ENABLE:-false}
+
 if [ $BROKER_ID = 0 ];then
     if [ $REPLICATION_MODE = "SYNC" ];then
       BROKER_ROLE="SYNC_MASTER"
@@ -26,6 +28,7 @@ function create_config() {
     echo "fileReservedTime=$FILE_RESERVED_TIME" >> $BROKER_CONFIG_FILE
     echo "brokerRole=$BROKER_ROLE" >> $BROKER_CONFIG_FILE
     echo "flushDiskType=$FLUSH_DISK_TYPE" >> $BROKER_CONFIG_FILE
+    echo "aclEnable=$ACL_ENABLE" >> $BROKER_CONFIG_FILE
     echo "Wrote broker configuration file to $BROKER_CONFIG_FILE"
 }
 
