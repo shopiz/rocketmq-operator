@@ -1,0 +1,48 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rocketmq-broker-plain-acl-configmap
+  namespace: rocketmq-operator
+data:
+  plain_acl.yml: |
+    globalWhiteRemoteAddresses:
+    - 10.55.*.*
+
+    accounts:
+    - accessKey: cGF5bWVudEB5ZWVoYXcuY29tLmNu
+      secretKey: EzlCBOaGWSOFyNERFJoFh8tPmDbfeE21
+      whiteRemoteAddress:
+      admin: false
+      defaultTopicPerm: DENY
+      # 这个对生产者不生效
+      defaultGroupPerm: DENY
+      topicPerms:
+      # 支付队列 - 开发环境
+      - TOPIC-ECO-ETC-PAYMENT-DEV=PUB|SUB
+      # 支付队列 - 测试环境
+      - TOPIC-ECO-ETC-PAYMENT-STG=PUB|SUB
+      # 支付队列 - CAT环境
+      - TOPIC-ECO-ETC-PAYMENT-CAT=PUB|SUB
+      # 支付队列 - 开发环境
+      - TOPIC-ECO-ETC-PAYMENT=PUB|SUB
+      groupPerms:
+      # 如果对Topic有生产消费的权限：
+      - CID_ECO_ETC_PAYMENT=PUB|SUB
+      - CID_ECO_ETC_PAYMENT-DEV=PUB|SUB
+      - CID_ECO_ETC_PAYMENT-STG=PUB|SUB
+      - CID_ECO_ETC_PAYMENT-CAT=PUB|SUB
+
+    - accessKey: bWFyc0B5ZWVoYXcuY29tLmNu
+      secretKey: KLAeu7Uee3YkoqukUi7VPiZTosaGL63V
+      whiteRemoteAddress:
+      # if it is admin, it could access all resources
+      admin: true
+
+    - accessKey: ZGFzaGJvYXJkQHllZWhhdy5jb20uY24K
+      secretKey: wLzUe3lPtm1ynmK4usS2IJUU7Sz9FwXd
+      whiteRemoteAddress:
+      # if it is admin, it could access all resources
+      admin: true
+  namesrv.properties: |
+    listenPort=9878

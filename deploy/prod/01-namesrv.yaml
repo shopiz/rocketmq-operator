@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rocketmq-namesrv
+  namespace: rocketmq-operator
+  labels:
+    app: rocketmq-namesrv
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rocketmq-namesrv
+  template:
+    metadata:
+      annotations:
+        tke.cloud.tencent.com/networks: tke-route-eni
+      labels:
+        app: rocketmq-namesrv
+    spec:
+      hostNetwork: false
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+      - name: namesrv
+        image: yeehawmars/rocketmq:4.9.3
+        command: ["sh","mqnamesrv", "-c", "/opt/rocketmq-4.9.3/conf/namesrv.properties"]
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9876
+        volumeMounts:
+          - mountPath: /root/logs/rocketmqlogs
+            name: namesrvlogs
+          - name: rocketmq-broker-plain-acl-configmap-volume
+            mountPath: /opt/rocketmq-4.9.3/conf/namesrv.properties
+            subPath: namesrv.properties
+      volumes:
+      - name: namesrvlogs
+        hostPath:
+          path: /data/namesrv/logs
+      - configMap:
+          defaultMode: 420
+          name: rocketmq-broker-plain-acl-configmap
+        name: rocketmq-broker-plain-acl-configmap-volume
+      nodeSelector:
+        rocketmq-operator: "on"

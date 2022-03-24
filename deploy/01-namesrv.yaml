@@ -18,12 +18,11 @@ spec:
       labels:
         app: rocketmq-namesrv
     spec:
-      hostNetwork: true
+      hostNetwork: false
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: namesrv
         image: yeehawmars/rocketmq:4.9.3
-        # image: huanwei/rocketmq:4.3.2
         command: ["sh","mqnamesrv"]
         imagePullPolicy: Always
         ports:
@@ -31,9 +30,16 @@ spec:
         volumeMounts:
           - mountPath: /root/logs/rocketmqlogs
             name: namesrvlogs
+          - name: rocketmq-broker-plain-acl-configmap-volume
+            mountPath: /opt/rocketmq-4.9.3/conf/namesrv.properties
+            subPath: namesrv.properties
       volumes:
       - name: namesrvlogs
         hostPath:
           path: /data/namesrv/logs
+      - configMap:
+          name: rocketmq-broker-plain-acl-configmap
+        name: rocketmq-broker-plain-acl-configmap-volume
+
       nodeSelector:
         rocketmq-operator: "on"

@@ -1,16 +1,15 @@
 ---
-apiVersion: "rocketmq.huanwei.io/v1alpha1"
+apiVersion: "rocketmq.shopiz.io/v1alpha1"
 kind: BrokerCluster
 metadata:
   name: mybrokercluster
   namespace : rocketmq-operator
 spec:
   brokerImage: yeehawmars/rocketmq-broker-k8s:4.9.3
-  # brokerImage: huanwei/rocketmq-broker-k8s:4.3.2
   nameServers: "10.55.1.7:9876;10.55.1.15:9876"
   allMaster: false
   replicationMode: SYNC
   groupReplica: 2
   membersPerGroup: 2
-  emptyDir: false
-  storageClassName: tke-cfs
+  emptyDir: true
+  # storageClassName: tke-cfs
