@@ -18,7 +18,7 @@ spec:
       labels:
         app: rocketmq-namesrv
     spec:
-      hostNetwork: false
+      hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: namesrv

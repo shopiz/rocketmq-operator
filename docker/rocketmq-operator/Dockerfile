@@ -1,4 +1,4 @@
-# huanwei/rocketmq-operator:0.1
+# shopiz/rocketmq-operator:0.1
 FROM alpine
 MAINTAINER Huan Wei<huan@harmonycloud.cn>
 

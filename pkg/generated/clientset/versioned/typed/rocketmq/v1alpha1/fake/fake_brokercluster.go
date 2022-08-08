@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	v1alpha1 "github.com/huanwei/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
+	v1alpha1 "github.com/shopiz/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -34,9 +34,9 @@ type FakeBrokerClusters struct {
 	ns   string
 }
 
-var brokerclustersResource = schema.GroupVersionResource{Group: "rocketmq.huanwei.io", Version: "v1alpha1", Resource: "brokerclusters"}
+var brokerclustersResource = schema.GroupVersionResource{Group: "rocketmq.shopiz.io", Version: "v1alpha1", Resource: "brokerclusters"}
 
-var brokerclustersKind = schema.GroupVersionKind{Group: "rocketmq.huanwei.io", Version: "v1alpha1", Kind: "BrokerCluster"}
+var brokerclustersKind = schema.GroupVersionKind{Group: "rocketmq.shopiz.io", Version: "v1alpha1", Kind: "BrokerCluster"}
 
 // Get takes name of the brokerCluster, and returns the corresponding brokerCluster object, and an error if there is any.
 func (c *FakeBrokerClusters) Get(name string, options v1.GetOptions) (result *v1alpha1.BrokerCluster, err error) {

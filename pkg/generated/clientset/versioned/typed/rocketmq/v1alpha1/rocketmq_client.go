@@ -19,8 +19,8 @@ limitations under the License.
 package v1alpha1
 
 import (
-	v1alpha1 "github.com/huanwei/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
-	"github.com/huanwei/rocketmq-operator/pkg/generated/clientset/versioned/scheme"
+	v1alpha1 "github.com/shopiz/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
+	"github.com/shopiz/rocketmq-operator/pkg/generated/clientset/versioned/scheme"
 	serializer "k8s.io/apimachinery/pkg/runtime/serializer"
 	rest "k8s.io/client-go/rest"
 )
@@ -30,7 +30,7 @@ type ROCKETMQV1alpha1Interface interface {
 	BrokerClustersGetter
 }
 
-// ROCKETMQV1alpha1Client is used to interact with features provided by the rocketmq.huanwei.io group.
+// ROCKETMQV1alpha1Client is used to interact with features provided by the rocketmq.shopiz.io group.
 type ROCKETMQV1alpha1Client struct {
 	restClient rest.Interface
 }

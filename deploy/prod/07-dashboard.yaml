@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: JAVA_OPTS
-          value: -Drocketmq.config.namesrvAddr=10.55.1.7:9878;10.55.1.15:9878 -Drocketmq.config.isVIPChannel=false  -Drocketmq.config.aclEnabled=true -Drocketmq.config.accessKey=ZGFzaGJvYXJkQHllZWhhdy5jb20uY24K -Drocketmq.config.secretKey=wLzUe3lPtm1ynmK4usS2IJUU7Sz9FwXd
+          value: -Drocketmq.config.namesrvAddr=10.56.1.5:9878;10.56.1.19:9878 -Drocketmq.config.isVIPChannel=false  -Drocketmq.config.aclEnabled=true -Drocketmq.config.accessKey=ZGFzaGJvYXJkQHllZWhhdy5jb20uY24K -Drocketmq.config.secretKey=wLzUe3lPtm1ynmK4usS2IJUU7Sz9FwXd
         # args: ["JAVA_OPTS=-Drocketmq.config.namesrvAddr=rocketmq-namesrv:9878","-Drocketmq.config.isVIPChannel=false"]
         ports:
         - name: http

@@ -18,7 +18,7 @@ package statefulsets
 
 import (
 	"encoding/json"
-	"github.com/huanwei/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
+	"github.com/shopiz/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
 	apps "k8s.io/api/apps/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	"testing"

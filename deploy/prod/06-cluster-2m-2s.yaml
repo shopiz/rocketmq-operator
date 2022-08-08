@@ -6,10 +6,10 @@ metadata:
   namespace : rocketmq-operator
 spec:
   brokerImage: yeehawmars/rocketmq-broker-k8s:4.9.3
-  nameServers: "10.55.1.7:9878;10.55.1.15:9878"
+  nameServers: "10.56.1.5:9878;10.56.1.19:9878"
   allMaster: false
   replicationMode: SYNC
   groupReplica: 2
   membersPerGroup: 2
   emptyDir: false
-  storageClassName: tke-cfs
+  storageClassName: cbs-csi-expand

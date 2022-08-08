@@ -19,8 +19,8 @@ package statefulsets
 import (
 	"fmt"
 	"github.com/golang/glog"
-	"github.com/huanwei/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
-	"github.com/huanwei/rocketmq-operator/pkg/constants"
+	"github.com/shopiz/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
+	"github.com/shopiz/rocketmq-operator/pkg/constants"
 	apps "k8s.io/api/apps/v1"
 	"k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
@@ -285,7 +285,7 @@ func defaultRequests() v1.ResourceRequirements {
 
 func defaultStorageQuantity() resource.Quantity {
 	var q resource.Quantity
-	q, _ = resource.ParseQuantity("5Gi")
+	q, _ = resource.ParseQuantity("10Gi")
 	return q
 }
 

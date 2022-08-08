@@ -183,9 +183,9 @@ rocketmq-operator-dcd764554-mff5c   1/1       Running   0          54m       192
 
 ### Upgrade RocketMQ broker version
 
-#### 1) For example, edit `deploy/04-cluster-2m-2s.yaml`, set `brokerImage` as from "4.3.2" to "4.4.0":
+#### 1) For example, edit `deploy/04-cluster-2m-2s.yaml`, set `brokerImage` as from "4.3.2" to "4.9.3":
 ```
-brokerImage: huanwei/rocketmq-broker-k8s:4.4.0
+brokerImage: shopiz/rocketmq-broker-k8s:4.9.3
 
 ```
 

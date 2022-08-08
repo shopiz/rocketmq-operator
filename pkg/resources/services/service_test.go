@@ -18,7 +18,7 @@ package services
 
 import (
 	"encoding/json"
-	"github.com/huanwei/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
+	"github.com/shopiz/rocketmq-operator/pkg/apis/rocketmq/v1alpha1"
 	"k8s.io/kubernetes/pkg/apis/apps"
 	"testing"
 	"unsafe"

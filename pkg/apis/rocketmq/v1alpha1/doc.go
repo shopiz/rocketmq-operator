@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 // +k8s:deepcopy-gen=package
-// +groupName=rocketmq.huanwei.io
+// +groupName=rocketmq.shopiz.io
 // +groupGoName=ROCKETMQ
 
 package v1alpha1

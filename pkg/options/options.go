@@ -106,7 +106,7 @@ func (s *OperatorOpts) AddFlags(fs *pflag.FlagSet) *pflag.FlagSet {
 	fs.StringVar(&s.KubeConfig, "kubeconfig", s.KubeConfig, "Path to Kubeconfig file with authorization and master location information.")
 	fs.StringVar(&s.Master, "master", s.Master, "The address of the Kubernetes API server (overrides any value in kubeconfig).")
 	fs.StringVar(&s.Namespace, "namespace", metav1.NamespaceAll, "The namespace for which the operator manages Rocketmq clusters. Defaults to all.")
-	//fs.StringVar(&s.Images.BrokerImage, "brokerimage", s.Images.BrokerImage, "The name of the target 'broker' image. Defaults to: huanwei/rocketmq-broker.")
+	//fs.StringVar(&s.Images.BrokerImage, "brokerimage", s.Images.BrokerImage, "The name of the target 'broker' image. Defaults to: shopiz/rocketmq-broker.")
 	fs.DurationVar(&s.MinResyncPeriod.Duration, "min-resync-period", s.MinResyncPeriod.Duration, "The resync period in reflectors will be random between MinResyncPeriod and 2*MinResyncPeriod.")
 	return fs
 }

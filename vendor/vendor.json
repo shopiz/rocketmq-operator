@@ -1552,5 +1552,5 @@
 			"revision": ""
 		}
 	],
-	"rootPath": "github.com/huanwei/rocketmq-operator"
+	"rootPath": "github.com/shopiz/rocketmq-operator"
 }
